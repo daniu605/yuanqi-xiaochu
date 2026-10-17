@@ -1,0 +1,54 @@
+<view class="page">
+  <!-- 状态筛选 -->
+  <view class="tab-bar">
+    <view
+      wx:for="{{tabs}}"
+      wx:key="key"
+      class="tab-item {{activeTab === item.key ? 'active' : ''}}"
+      bindtap="onTabChange"
+      data-key="{{item.key}}"
+    >
+      {{item.name}}
+    </view>
+  </view>
+
+  <view class="subscribe-btn" bindtap="subscribeNotice">开启新点菜消息提醒</view>
+
+  <view class="loading" wx:if="{{loading}}">加载中...</view>
+  <view class="empty" wx:elif="{{orders.length === 0}}">暂无点菜单</view>
+
+  <block wx:else>
+    <view class="order-card" wx:for="{{orders}}" wx:key="_id">
+      <view class="order-head">
+        <text class="order-no">点菜单 {{item.orderNo}}</text>
+        <text class="status-tag status-{{item.status}}">{{statusText[item.status] || item.status}}</text>
+      </view>
+      <view class="order-time">{{item.createTime}}</view>
+      <view class="order-addr" wx:if="{{item.address}}">
+        <text class="addr-name">{{item.address.name}}</text>
+        <text class="addr-phone">{{item.address.phone}}</text>
+        <view class="addr-detail">{{item.address.address}}</view>
+      </view>
+      <view class="order-items">
+        <view class="order-item" wx:for="{{item.items}}" wx:for-item="dish" wx:key="id">
+          <text>{{dish.name}}</text>
+          <text class="item-count">x{{dish.count}}</text>
+        </view>
+      </view>
+      <view class="order-remark" wx:if="{{item.remark}}">备注：{{item.remark}}</view>
+      <view class="order-foot">
+        <view class="total" wx:if="{{item.items}}">共 <text class="price">{{item.items.length}}</text> 项菜</view>
+        <view class="actions">
+          <block wx:if="{{item.status === 'pending'}}">
+            <view class="action-btn primary" catchtap="onAccept" data-id="{{item._id}}">开始做</view>
+            <view class="action-btn danger" catchtap="onCancel" data-id="{{item._id}}">取消</view>
+          </block>
+          <block wx:elif="{{item.status === 'accepted'}}">
+            <view class="action-btn primary" catchtap="onComplete" data-id="{{item._id}}">已上桌</view>
+            <view class="action-btn danger" catchtap="onCancel" data-id="{{item._id}}">取消</view>
+          </block>
+        </view>
+      </view>
+    </view>
+  </block>
+</view>

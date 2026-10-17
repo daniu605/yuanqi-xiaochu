@@ -1,0 +1,135 @@
+.page {
+  min-height: 100vh;
+  background-color: #FFF6F6;
+  padding: 30rpx;
+  box-sizing: border-box;
+}
+
+.loading {
+  text-align: center;
+  color: #999;
+  font-size: 28rpx;
+  padding: 100rpx 0;
+}
+
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 200rpx;
+}
+
+.empty-text {
+  color: #999;
+  font-size: 30rpx;
+  margin-bottom: 40rpx;
+}
+
+.go-btn {
+  background: linear-gradient(to right, #FF7A9E, #FF5777);
+  color: #fff;
+  font-size: 30rpx;
+  padding: 16rpx 60rpx;
+  border-radius: 40rpx;
+  box-shadow: 0 4rpx 10rpx rgba(255, 87, 119, 0.3);
+}
+
+.order-card {
+  background-color: #fff;
+  border-radius: 16rpx;
+  padding: 30rpx;
+  margin-bottom: 30rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+}
+
+.order-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.order-no {
+  font-size: 26rpx;
+  color: #666;
+  font-weight: 500;
+}
+
+.status-tag {
+  font-size: 24rpx;
+  padding: 6rpx 20rpx;
+  border-radius: 20rpx;
+}
+
+.status-pending {
+  background-color: #FFF3E0;
+  color: #FF9800;
+}
+
+.status-accepted {
+  background-color: #E3F2FD;
+  color: #2196F3;
+}
+
+.status-completed {
+  background-color: #E8F5E9;
+  color: #4CAF50;
+}
+
+.status-cancelled {
+  background-color: #F5F5F5;
+  color: #999;
+}
+
+.order-time {
+  font-size: 24rpx;
+  color: #999;
+  margin: 10rpx 0 20rpx;
+}
+
+.order-addr {
+  font-size: 24rpx;
+  color: #666;
+  background-color: #FFF6F6;
+  border-radius: 10rpx;
+  padding: 12rpx 16rpx;
+  margin-bottom: 16rpx;
+}
+
+.order-items {
+  border-top: 1rpx solid #f6f6f6;
+  padding-top: 20rpx;
+}
+
+.order-item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 28rpx;
+  color: #333;
+  padding: 8rpx 0;
+}
+
+.item-count {
+  color: #999;
+}
+
+.order-remark {
+  font-size: 26rpx;
+  color: #666;
+  background-color: #FFF6F6;
+  border-radius: 10rpx;
+  padding: 16rpx 20rpx;
+  margin-top: 16rpx;
+}
+
+.order-foot {
+  text-align: right;
+  font-size: 28rpx;
+  color: #333;
+  margin-top: 16rpx;
+}
+
+.order-foot .price {
+  color: #FF5777;
+  font-weight: bold;
+  font-size: 32rpx;
+}

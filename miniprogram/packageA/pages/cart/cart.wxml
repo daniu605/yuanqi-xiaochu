@@ -1,0 +1,78 @@
+<view class="cart-page">
+  <!-- 自定义Toast -->
+  <view class="custom-toast {{toastVisible ? 'show' : ''}}" wx:if="{{toastVisible}}">
+    {{toastContent}}
+  </view>
+
+  <!-- 返回按钮 -->
+  <view class="nav-bar">
+    <view class="back-btn" bindtap="goHome">
+      <text class="iconfont icon-home"></text>
+    </view>
+    <view class="title">选菜清单</view>
+  </view>
+
+  <!-- 清单为空提示 -->
+  <view class="empty-cart" wx:if="{{cartList.length === 0}}">
+    <image class="empty-icon" src="/images/default-goods-image.png" mode="aspectFit"></image>
+    <view class="empty-text">还没有选菜</view>
+    <view class="go-shop-btn" bindtap="goHome">去选菜</view>
+  </view>
+
+  <!-- 购物车内容 -->
+  <view class="cart-content" wx:else>
+    <!-- 收货地址 -->
+    <view class="address-card" bindtap="goAddress">
+      <block wx:if="{{address}}">
+        <view class="addr-line1">
+          <text class="addr-name">{{address.name}}</text>
+          <text class="addr-phone">{{address.phone}}</text>
+        </view>
+        <view class="addr-detail">{{address.address}}</view>
+        <view class="addr-change">更换地址 ›</view>
+      </block>
+      <block wx:else>
+        <view class="addr-empty">+ 点击填写用餐位置</view>
+      </block>
+    </view>
+
+    <view class="cart-header">
+      <text class="cart-title">已选菜品</text>
+      <view class="clear-btn" bindtap="clearCart">清空</view>
+    </view>
+    
+    <view class="cart-list">
+      <view class="cart-item" wx:for="{{cartList}}" wx:key="index">
+        <image class="dish-image" src="{{item.image}}" mode="aspectFill"></image>
+        <view class="dish-info">
+          <view class="dish-name">{{item.name}}</view>
+          <view class="dish-bottom">
+            <view class="dish-portion" wx:if="{{item.portion}}">{{item.portion}}</view>
+            <view class="dish-count">
+              <view class="count-btn minus" bindtap="decreaseCount" data-index="{{index}}">-</view>
+              <view class="count-value">{{item.count}}</view>
+              <view class="count-btn plus" bindtap="increaseCount" data-index="{{index}}">+</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    
+    <view class="remark-section">
+      <view class="remark-title">备注</view>
+      <textarea class="remark-input" placeholder="如有特殊需求，请在此填写" 
+                bindinput="onRemarkInput" value="{{remark}}"></textarea>
+    </view>
+
+    <view class="total-section">
+      <text>共选了</text>
+      <text class="total-price">{{totalCount}} 份菜</text>
+    </view>
+  </view>
+
+  <!-- 提交按钮 -->
+  <view class="submit-btn {{cartList.length === 0 ? 'disabled' : ''}} {{loading ? 'loading' : ''}}" 
+        bindtap="submitOrder">
+    <text>{{loading ? '提交中，请勿重复点击...' : (cartList.length === 0 ? '还没有选菜' : '提交点菜（共' + totalCount + '份）')}}</text>
+  </view>
+</view>

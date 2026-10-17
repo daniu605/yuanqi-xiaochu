@@ -1,0 +1,11 @@
+{
+  "name": "quickstartFunctions",
+  "version": "1.0.0",
+  "description": "点餐系统云函数（单函数路由模式）",
+  "main": "index.js",
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "wx-server-sdk": "~2.6.3"
+  }
+}

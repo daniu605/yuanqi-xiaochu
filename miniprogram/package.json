@@ -1,0 +1,9 @@
+{
+  "name": "miniprogram",
+  "version": "1.0.0",
+  "description": "小程序目录",
+  "main": "app.js",
+  "dependencies": {
+    "@vant/weapp": "^1.11.7"
+  }
+}

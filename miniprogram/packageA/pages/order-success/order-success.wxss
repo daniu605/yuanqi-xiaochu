@@ -1,0 +1,131 @@
+.success-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40rpx;
+  min-height: 100vh;
+  background-color: #FFF6F6;
+}
+
+.success-icon {
+  margin: 60rpx 0;
+}
+
+.success-title {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 40rpx;
+}
+
+.order-info {
+  width: 100%;
+  background-color: white;
+  border-radius: 16rpx;
+  padding: 30rpx;
+  margin-bottom: 40rpx;
+  box-shadow: 0 4rpx 16rpx rgba(255, 192, 203, 0.1);
+  box-sizing: border-box;
+}
+
+.order-no {
+  font-size: 26rpx;
+  color: #999;
+  margin-bottom: 10rpx;
+}
+
+.order-time {
+  font-size: 28rpx;
+  color: #999;
+  margin-bottom: 30rpx;
+}
+
+.order-address {
+  margin-bottom: 20rpx;
+  padding-bottom: 20rpx;
+  border-bottom: 1rpx solid #f6f6f6;
+}
+
+.address-line {
+  font-size: 28rpx;
+  color: #333;
+  line-height: 1.6;
+}
+
+.order-items {
+  margin-bottom: 30rpx;
+}
+
+.items-title, .remark-title {
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #666;
+  margin-bottom: 20rpx;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 28rpx;
+  color: #333;
+  padding: 10rpx 0;
+}
+
+.count {
+  color: #999;
+}
+
+.order-total {
+  font-size: 28rpx;
+  color: #333;
+  text-align: right;
+  padding: 10rpx 0 20rpx;
+}
+
+.order-total .price {
+  color: #FF5777;
+  font-weight: bold;
+  font-size: 32rpx;
+}
+
+.order-remark {
+  border-top: 1rpx dashed #eee;
+  padding-top: 20rpx;
+}
+
+.remark-content {
+  font-size: 28rpx;
+  color: #666;
+  word-break: break-all;
+}
+
+.tip-text {
+  font-size: 28rpx;
+  color: #FFC0CB;
+  margin: 40rpx 0;
+}
+
+.btn-area {
+  width: 100%;
+  margin-top: 40rpx;
+}
+
+.my-orders-link {
+  text-align: center;
+  color: #FF7A9E;
+  font-size: 28rpx;
+  margin-top: 30rpx;
+}
+
+/* 美化返回首页按钮 */
+.home-btn {
+  width: 100%;
+  height: 90rpx !important;
+  border-radius: 45rpx !important;
+  font-size: 32rpx !important;
+  font-weight: 500 !important;
+  letter-spacing: 2rpx;
+  background: linear-gradient(to right, #FF7A9E, #FF5777) !important;
+  border: none !important;
+  box-shadow: 0 10rpx 20rpx rgba(255, 87, 119, 0.3) !important;
+}

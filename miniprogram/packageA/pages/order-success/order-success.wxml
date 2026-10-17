@@ -1,0 +1,42 @@
+<view class="success-container">
+  <view class="success-icon">
+    <van-icon name="passed" color="#FFC0CB" size="80px" />
+  </view>
+  
+  <view class="success-title">点菜提交成功</view>
+  
+  <view class="order-info">
+    <view class="order-no" wx:if="{{orderNo}}">点菜单号：{{orderNo}}</view>
+    <view class="order-time">提交时间：{{orderTime}}</view>
+
+    <view class="order-address" wx:if="{{address}}">
+      <view class="items-title">用餐位置：</view>
+      <view class="address-line">{{address.name}}　{{address.phone}}</view>
+      <view class="address-line">{{address.address}}</view>
+    </view>
+    
+    <view class="order-items">
+      <view class="items-title">点单内容：</view>
+      <view class="item" wx:for="{{orderItems}}" wx:key="id">
+        <text>{{item.name}}</text>
+        <text class="count">x{{item.count || 1}}</text>
+      </view>
+    </view>
+
+    <view class="order-total" wx:if="{{totalAmount}}">
+      合计：<text class="price">¥{{totalAmount}}</text>
+    </view>
+    
+    <view class="order-remark" wx:if="{{remark}}">
+      <view class="remark-title">备注：</view>
+      <view class="remark-content">{{remark}}</view>
+    </view>
+  </view>
+  
+  <view class="tip-text">已通知厨房，请耐心等待美食～</view>
+  
+  <view class="btn-area">
+    <van-button type="primary" color="#FFC0CB" custom-class="home-btn" round block bindtap="backToHome">返回首页</van-button>
+    <view class="my-orders-link" bindtap="goMyOrders">查看我的点菜</view>
+  </view>
+</view>

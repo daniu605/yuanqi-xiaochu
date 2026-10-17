@@ -1,0 +1,204 @@
+.page {
+  min-height: 100vh;
+  background-color: #FFF6F6;
+  padding: 40rpx;
+  box-sizing: border-box;
+}
+
+.loading {
+  text-align: center;
+  color: #999;
+  font-size: 28rpx;
+  padding: 100rpx 0;
+}
+
+.no-auth {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 140rpx;
+}
+
+.no-auth-text {
+  font-size: 32rpx;
+  color: #333;
+  margin-bottom: 20rpx;
+}
+
+.no-auth-tip {
+  font-size: 26rpx;
+  color: #999;
+  text-align: center;
+  margin-bottom: 60rpx;
+  padding: 0 40rpx;
+  line-height: 1.6;
+}
+
+.code-input {
+  width: 100%;
+  background-color: #fff;
+  border-radius: 40rpx;
+  padding: 24rpx 40rpx;
+  font-size: 30rpx;
+  text-align: center;
+  margin-bottom: 30rpx;
+  box-sizing: border-box;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+}
+
+.init-btn {
+  background: linear-gradient(to right, #FF7A9E, #FF5777);
+  color: #fff;
+  font-size: 30rpx;
+  padding: 18rpx 80rpx;
+  border-radius: 40rpx;
+  box-shadow: 0 4rpx 10rpx rgba(255, 87, 119, 0.3);
+}
+
+.home-link {
+  color: #FF7A9E;
+  font-size: 28rpx;
+  margin-top: 40rpx;
+}
+
+.admin-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 40rpx;
+}
+
+.admin-title {
+  font-size: 40rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.role-tag {
+  font-size: 24rpx;
+  color: #FF5777;
+  background-color: #FFF0F3;
+  border-radius: 20rpx;
+  padding: 6rpx 24rpx;
+}
+
+.role-tag.owner {
+  color: #fff;
+  background: linear-gradient(to right, #FF7A9E, #FF5777);
+}
+
+.entry-card {
+  background-color: #fff;
+  border-radius: 16rpx;
+  padding: 40rpx 30rpx;
+  margin-bottom: 30rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+  border-left: 8rpx solid #FFC0CB;
+}
+
+.entry-name {
+  font-size: 34rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10rpx;
+}
+
+.entry-desc {
+  font-size: 26rpx;
+  color: #999;
+}
+
+/* 成员管理（仅owner） */
+.owner-card {
+  background-color: #fff;
+  border-radius: 16rpx;
+  padding: 30rpx;
+  margin-bottom: 30rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+}
+
+.owner-title {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20rpx;
+}
+
+.invite-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #FFF6F6;
+  border-radius: 12rpx;
+  padding: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.invite-label {
+  font-size: 26rpx;
+  color: #666;
+}
+
+.invite-code {
+  font-size: 34rpx;
+  font-weight: bold;
+  color: #FF5777;
+  letter-spacing: 4rpx;
+}
+
+.member-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16rpx 0;
+  border-bottom: 1rpx solid #f6f6f6;
+}
+
+.member-item:last-child {
+  border-bottom: none;
+}
+
+.member-info {
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+  overflow: hidden;
+}
+
+.member-openid {
+  font-size: 24rpx;
+  color: #666;
+  max-width: 340rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.member-role {
+  font-size: 22rpx;
+  color: #FF5777;
+  background-color: #FFF0F3;
+  border-radius: 8rpx;
+  padding: 2rpx 12rpx;
+  flex-shrink: 0;
+}
+
+.member-remove {
+  font-size: 24rpx;
+  color: #999;
+  padding: 8rpx 24rpx;
+  border-radius: 30rpx;
+  background-color: #f6f6f6;
+  flex-shrink: 0;
+}
+
+.subscribe-btn {
+  text-align: center;
+  background-color: #fff;
+  color: #FF7A9E;
+  font-size: 28rpx;
+  padding: 24rpx;
+  border-radius: 40rpx;
+  border: 1rpx solid #FFC0CB;
+  margin-top: 20rpx;
+}

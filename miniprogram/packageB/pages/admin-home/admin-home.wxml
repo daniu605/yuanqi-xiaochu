@@ -1,0 +1,65 @@
+<view class="page">
+  <view class="loading" wx:if="{{checking}}">身份校验中...</view>
+
+  <!-- 从未初始化：仅首次可见 -->
+  <view class="no-auth" wx:elif="{{!hasOwner}}">
+    <view class="no-auth-text">系统尚未初始化</view>
+    <view class="no-auth-tip">首次初始化者将成为商家（owner），之后可通过邀请码邀请其他管理员</view>
+    <view class="init-btn" bindtap="initData">初始化数据</view>
+  </view>
+
+  <!-- 已初始化但无权限：凭邀请码加入 -->
+  <view class="no-auth" wx:elif="{{!isAdmin}}">
+    <view class="no-auth-text">您暂无厨房管理权限</view>
+    <view class="no-auth-tip">请联系掌勺人获取邀请码</view>
+    <input
+      class="code-input"
+      placeholder="请输入邀请码"
+      value="{{joinCode}}"
+      bindinput="onJoinCodeInput"
+    />
+    <view class="init-btn" bindtap="joinByInvite">凭邀请码加入</view>
+    <view class="home-link" bindtap="goHome">返回首页</view>
+  </view>
+
+  <!-- 后台成员 -->
+  <view class="admin" wx:else>
+    <view class="admin-head">
+      <view class="admin-title">厨房管理</view>
+      <text class="role-tag {{role === 'owner' ? 'owner' : ''}}">{{role === 'owner' ? '掌勺人' : '帮厨'}}</text>
+    </view>
+
+    <view class="entry-card" bindtap="goOrders">
+      <view class="entry-name">点菜单管理</view>
+      <view class="entry-desc">查看点菜单，开始做 / 已上桌 / 取消</view>
+    </view>
+    <view class="entry-card" bindtap="goDishes">
+      <view class="entry-name">菜单管理</view>
+      <view class="entry-desc">菜品与分类增删改，随时换图片、改菜名</view>
+    </view>
+
+    <!-- 仅商家可见：邀请码与成员管理 -->
+    <view class="owner-card" wx:if="{{role === 'owner'}}">
+      <view class="owner-title">成员管理</view>
+      <view class="invite-row" bindtap="copyInviteCode">
+        <text class="invite-label">邀请码（点击复制）</text>
+        <text class="invite-code">{{inviteCode}}</text>
+      </view>
+      <view class="member-item" wx:for="{{members}}" wx:key="_id">
+        <view class="member-info">
+          <text class="member-openid">{{item.openid}}</text>
+          <text class="member-role">{{item.role === 'owner' ? '掌勺人' : '帮厨'}}</text>
+        </view>
+        <view
+          class="member-remove"
+          wx:if="{{item.role !== 'owner'}}"
+          catchtap="removeMember"
+          data-id="{{item._id}}"
+        >移除</view>
+      </view>
+    </view>
+
+    <view class="subscribe-btn" bindtap="subscribeNotice">开启新点菜消息提醒</view>
+    <view class="home-link" bindtap="goHome">返回首页</view>
+  </view>
+</view>

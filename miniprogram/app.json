@@ -1,0 +1,44 @@
+{
+  "pages": [
+    "pages/index/index"
+  ],
+  "subpackages": [
+    {
+      "root": "packageA",
+      "pages": [
+        "pages/cart/cart",
+        "pages/order-success/order-success",
+        "pages/my-orders/my-orders",
+        "pages/address/address"
+      ]
+    },
+    {
+      "root": "packageB",
+      "pages": [
+        "pages/admin-home/admin-home",
+        "pages/admin-orders/admin-orders",
+        "pages/admin-dishes/admin-dishes"
+      ]
+    }
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#FFC0CB",
+    "navigationBarTitleText": "叶子大人的私房菜",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#FFF6F6"
+  },
+  "usingComponents": {
+    "van-button": "miniprogram_npm/@vant/weapp/button/index",
+    "van-tab": "miniprogram_npm/@vant/weapp/tab/index",
+    "van-tabs": "miniprogram_npm/@vant/weapp/tabs/index",
+    "van-icon": "miniprogram_npm/@vant/weapp/icon/index",
+    "van-stepper": "miniprogram_npm/@vant/weapp/stepper/index",
+    "van-field": "miniprogram_npm/@vant/weapp/field/index",
+    "van-tag": "miniprogram_npm/@vant/weapp/tag/index",
+    "van-empty": "miniprogram_npm/@vant/weapp/empty/index",
+    "van-switch": "miniprogram_npm/@vant/weapp/switch/index"
+  },
+  "lazyCodeLoading": "requiredComponents",
+  "sitemapLocation": "sitemap.json"
+}

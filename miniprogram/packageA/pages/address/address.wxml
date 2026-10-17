@@ -1,0 +1,64 @@
+<view class="page">
+  <view class="tip" wx:if="{{selectMode}}">点击地址卡片即可选用</view>
+
+  <view class="loading" wx:if="{{loading}}">加载中...</view>
+  <view class="empty" wx:elif="{{addresses.length === 0}}">
+    <view class="empty-text">还没有用餐位置</view>
+  </view>
+
+  <block wx:else>
+    <view
+      class="addr-card {{selectMode ? 'selectable' : ''}}"
+      wx:for="{{addresses}}"
+      wx:key="_id"
+      bindtap="onItemTap"
+      data-item="{{item}}"
+    >
+      <view class="addr-line1">
+        <text class="addr-name">{{item.name}}</text>
+        <text class="addr-phone">{{item.phone}}</text>
+        <text class="default-tag" wx:if="{{item.isDefault}}">默认</text>
+      </view>
+      <view class="addr-detail">{{item.address}}</view>
+      <view class="addr-ops">
+        <view class="op-btn default" wx:if="{{!item.isDefault}}" catchtap="onSetDefault" data-id="{{item._id}}">设为默认</view>
+        <view class="op-btn edit" catchtap="onEdit" data-item="{{item}}">编辑</view>
+        <view class="op-btn delete" catchtap="onDelete" data-id="{{item._id}}">删除</view>
+      </view>
+    </view>
+  </block>
+
+  <view class="add-btn" bindtap="onAdd">+ 新增位置</view>
+
+  <!-- 表单弹窗 -->
+  <view class="form-mask" wx:if="{{showForm}}" bindtap="closeForm">
+    <view class="form-panel" catchtap="noop">
+      <view class="form-title">{{isEdit ? '编辑地址' : '新增地址'}}</view>
+
+      <view class="form-item">
+        <view class="form-label">用餐人</view>
+        <input class="form-input" placeholder="请输入称呼（如：老婆）" value="{{form.name}}" bindinput="onNameInput" />
+      </view>
+
+      <view class="form-item">
+        <view class="form-label">联系电话（选填）</view>
+        <input class="form-input" type="number" maxlength="11" placeholder="方便联系时填写" value="{{form.phone}}" bindinput="onPhoneInput" />
+      </view>
+
+      <view class="form-item">
+        <view class="form-label">具体位置</view>
+        <textarea class="form-textarea" placeholder="如：3号楼502 / 二楼书房" value="{{form.address}}" bindinput="onAddrInput" />
+      </view>
+
+      <view class="form-item row">
+        <view class="form-label">设为默认地址</view>
+        <switch checked="{{form.isDefault}}" color="#FF7A9E" bindchange="onDefaultChange" />
+      </view>
+
+      <view class="form-btns">
+        <view class="form-btn cancel" bindtap="closeForm">取消</view>
+        <view class="form-btn confirm" bindtap="saveAddress">{{saving ? '保存中...' : '保存'}}</view>
+      </view>
+    </view>
+  </view>
+</view>
